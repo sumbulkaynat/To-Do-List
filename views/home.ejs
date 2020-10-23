@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do List</title>
+    <script src="https://kit.fontawesome.com/0f7bd02f2a.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/css/home.css">
+</head>
+<body>
+    <h1>TO DO LIST</h1>
+
+    <form action="/create-task" method="POST">
+        <label for="task-info">Enter Task :</label><br>
+        <input type="text" id="task-info" name="task" required><br>
+        <label for="lname">Deadline :</label><br>
+        <input type="date" id="lname" name="deadline" required>
+        <label for="category">Category : </label>
+        <select id="category" name="category" required>
+            <option value="school">School</option>
+            <option value="work">Work</option>
+            <option value="home">Home</option>
+            <option value="personal">Personal</option>
+            <option value="others">Others</option>
+        </select><br><br>
+        <input type="submit" value="Submit"><br><br>
+    </form> 
+
+    <form action="/delete-task" method="POST">
+        <div id="task-display-container">
+            <label>Tasks : </label>
+            <% for(let i of task_list){ %>
+                <div id="task-display">
+                    <input type="checkbox" value="<%= i._id %>" name="done">
+                    <%= i.task %>
+                    &nbsp &nbsp
+                    <%= i.deadline %>
+                    &nbsp &nbsp
+                    <%= i.category %>
+                </div>
+            <% } %>
+            <input type="submit" value="Delete">
+        </div>
+    </form>
+
+    <script type="text/javascript" src="/js/home.js"></script>
+</body>
+</html>

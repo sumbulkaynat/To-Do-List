@@ -1,0 +1,11 @@
+body{
+    text-align: center;
+}
+
+p {
+    border: 2px solid powderblue;
+    padding: 30px;
+    width: 300px;
+    margin: auto;
+    background-color: whitesmoke;
+}
